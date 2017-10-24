@@ -23,11 +23,11 @@ while getopts ":aehmptw" opt; do
 		;;
  		m) output_format='mobi'
 		;;
-		h) echo "options are: -a for all, -h for help, -p for pact, -t for twig, -w for worm, -e for epub, -m for mobi" 
+		h) echo "options are: -a for all, -h for help, -p for pact, -t for twig, -w for worm, -e for epub, -m for mobi"
 		;;
 	esac
 done
 
 for project in ${projects}; do
-	scrape ${project} ${output_format} 
+	scrape ${project} ${output_format}
 done
