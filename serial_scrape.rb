@@ -16,7 +16,7 @@ options = []
 OptionParser.new do |opts|
   opts.banner = "Usage: serial_scrape.rb [options]"
 
-  opts.on("-s", "--series NAME", "Select web series") do |name|
+  opts.on("-s", "--series NAME", "Select web series (" + story.keys.join(", ") + ")") do |name|
     options << name
   end
 
