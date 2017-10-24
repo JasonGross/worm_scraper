@@ -8,8 +8,9 @@ require 'uri'
 @pact_url="https://pactwebserial.wordpress.com/category/story/arc-1-bonds/1-01/"
 @twig_url="https://twigserial.wordpress.com/2014/12/24/taking-root-1-1/"
 @worm_url="https://parahumans.wordpress.com/2011/06/11/1-1/"
+@glow_worm_url="https://parahumans.wordpress.com/2017/10/21/glowworm-p-1/"
 
-story = { "pact" => @pact_url, "twig" => @twig_url, "worm" => @worm_url}
+story = { "worm" => @worm_url, "pact" => @pact_url, "twig" => @twig_url, "glow-worm" => @glow_worm_url }
 
 options = []
 OptionParser.new do |opts|
@@ -20,7 +21,7 @@ OptionParser.new do |opts|
   end
 
  opts.on("-a", "select all") do 
-    options = ["worm", "pact", "twig"]
+    options = story.keys
  end
 end.parse!
 
