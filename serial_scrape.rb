@@ -9,8 +9,9 @@ require 'uri'
 @twig_url="https://twigserial.wordpress.com/2014/12/24/taking-root-1-1/"
 @worm_url="https://parahumans.wordpress.com/2011/06/11/1-1/"
 @glow_worm_url="https://parahumans.wordpress.com/2017/10/21/glowworm-p-1/"
+@ward_url="https://www.parahumans.net/2017/09/11/daybreak-1-1/"
 
-story = { "worm" => @worm_url, "pact" => @pact_url, "twig" => @twig_url, "glow-worm" => @glow_worm_url }
+story = { "worm" => @worm_url, "pact" => @pact_url, "twig" => @twig_url, "glow-worm" => @glow_worm_url, "ward" => @ward_url }
 
 options = []
 OptionParser.new do |opts|
@@ -20,7 +21,7 @@ OptionParser.new do |opts|
     options << name
   end
 
- opts.on("-a", "select all") do 
+ opts.on("-a", "select all") do
     options = story.keys
  end
 end.parse!
@@ -37,6 +38,9 @@ def write_story(starting_chapter)
 	end
 	if @next_chapter.to_s.start_with?("//")
 	@next_chapter = "https:" + @next_chapter
+	end
+	if @next_chapter.to_s.start_with?("http://")
+	@next_chapter.sub! 'http://', 'https://'
 	end
 doc = Nokogiri::HTML(open(@next_chapter))
 #get
@@ -67,9 +71,9 @@ doc = Nokogiri::HTML(open(@next_chapter))
 
 	puts @toc
 	puts @book_body
-end	
+end
 
-story.each{ |key, val| if options.include?(key) 
+story.each{ |key, val| if options.include?(key)
 	write_story(val)
 	end
 }
