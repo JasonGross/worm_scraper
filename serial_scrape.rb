@@ -9,7 +9,7 @@ require 'uri'
 @twig_url="https://twigserial.wordpress.com/2014/12/24/taking-root-1-1/"
 @worm_url="https://parahumans.wordpress.com/2011/06/11/1-1/"
 @glow_worm_url="https://parahumans.wordpress.com/2017/10/21/glowworm-p-1/"
-@ward_url="https://www.parahumans.net/2017/09/11/daybreak-1-1/"
+@ward_url="https://www.parahumans.net/2017/10/21/glow-worm-0-1/"
 
 story = { "worm" => @worm_url, "pact" => @pact_url, "twig" => @twig_url, "glow-worm" => @glow_worm_url, "ward" => @ward_url }
 
